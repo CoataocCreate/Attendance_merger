@@ -1,7 +1,16 @@
+:root {
+    --primary-color: #2980b9;
+    --hover-color: #3498db;
+    --alert-border-color: #2980b9;
+    --alert-bg-color: #ecf0f1;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+}
+
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 h1 {
@@ -11,7 +20,7 @@ h1 {
 }
 
 .stButton button {
-    background-color: #2980b9;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -21,12 +30,17 @@ h1 {
 }
 
 .stButton button:hover {
-    background-color: #3498db;
+    background-color: var(--hover-color);
     transform: scale(1.05);
 }
 
+.stButton button:focus {
+    outline: 2px solid var(--hover-color);
+    outline-offset: 2px;
+}
+
 .stFileUploader label {
-    background-color: #2980b9;
+    background-color: var(--primary-color);
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -34,13 +48,13 @@ h1 {
 }
 
 .stFileUploader label:hover {
-    background-color: #3498db;
+    background-color: var(--hover-color);
 }
 
 .stAlert {
-    border: 1px solid #2980b9;
-    background-color: #ecf0f1;
-    color: #2980b9;
+    border: 1px solid var(--alert-border-color);
+    background-color: var(--alert-bg-color);
+    color: var(--alert-border-color);
     border-radius: 5px;
     padding: 10px;
     transition: background-color 0.3s;
@@ -50,7 +64,7 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
@@ -61,7 +75,7 @@ h1 {
 .loading {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #2980b9;
+    border-top: 16px solid var(--primary-color);
     width: 60px;
     height: 60px;
     animation: spin 2s linear infinite;
@@ -71,4 +85,15 @@ h1 {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Adjust font size for mobile */
+    }
+
+    .stButton button {
+        padding: 8px 16px; /* Adjust padding for buttons */
+    }
 }
